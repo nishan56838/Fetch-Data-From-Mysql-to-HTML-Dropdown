@@ -1,0 +1,36 @@
+<?php
+$hostname = "localhost";
+$username = "root";
+$password = "";
+$databaseName = "test_db";
+
+$connect = mysqli_connect($hostname, $username, $password, $databaseName);
+$query = "SELECT * FROM `table1`";
+
+$result1 = mysqli_query($connect, $query);
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Drop Down</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <form name="form1" action="" method="POST">
+
+    <select>
+        <?php while ($row1 = mysqli_fetch_array($result1)):; ?>
+        <option><?php echo $row1[1]; ?></option>
+        <?php endwhile; ?>
+    </select>
+    
+</form>
+</body>
+</html>
+
+
